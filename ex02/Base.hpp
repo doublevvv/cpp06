@@ -6,7 +6,7 @@
 /*   By: vlaggoun <vlaggoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 14:39:50 by vlaggoun          #+#    #+#             */
-/*   Updated: 2025/04/29 15:46:49 by vlaggoun         ###   ########.fr       */
+/*   Updated: 2025/04/30 10:05:12 by vlaggoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 #define BASE_HPP
 
 #include <iostream>
+#include <cstdlib>
 
 class Base
 {
+public:
 	virtual ~Base(void);
 };
 

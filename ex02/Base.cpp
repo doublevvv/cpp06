@@ -6,7 +6,7 @@
 /*   By: vlaggoun <vlaggoun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 15:50:57 by vlaggoun          #+#    #+#             */
-/*   Updated: 2025/04/29 15:52:03 by vlaggoun         ###   ########.fr       */
+/*   Updated: 2025/04/30 10:25:54 by vlaggoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 Base::~Base()
 {
-	std::cout << "Default constructor is created" << std::endl;
+	std::cout << "Default Destructor is called" << std::endl;
 }

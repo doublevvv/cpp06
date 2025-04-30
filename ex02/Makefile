@@ -6,13 +6,14 @@
 #    By: vlaggoun <vlaggoun@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/29 14:12:38 by vlaggoun          #+#    #+#              #
-#    Updated: 2025/04/29 14:39:25 by vlaggoun         ###   ########.fr        #
+#    Updated: 2025/04/30 10:02:36 by vlaggoun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 
+NAME = realtype
 
-SOURCES =
+SOURCES = main.cpp Base.cpp
+
 SRCS = $(SOURCES)
 
 #SRCS = $(addprefix $(OBJ_DIR)/, $(SOURCES))
