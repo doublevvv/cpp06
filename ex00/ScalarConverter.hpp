@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlaggoun <vlaggoun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: doublevv <vv>                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 07:30:07 by vlaggoun          #+#    #+#             */
-/*   Updated: 2025/04/28 13:25:38 by vlaggoun         ###   ########.fr       */
+/*   Updated: 2025/05/12 18:42:14 by doublevv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <cstring>
+#include <cmath>
+#include <limits>
 
 class ScalarConverter
 {
@@ -28,6 +30,10 @@ private:
 	ScalarConverter &operator=(const ScalarConverter &rhs);
 };
 
-void	parsing_arg(std::string);
+void	isnt_int(std::string arg);
+void	isnt_float(std::string arg);
+void	isnt_double(std::string arg);
+void	isnt_char(std::string arg);
+bool	isnt_digits(std::string arg);
 
 #endif

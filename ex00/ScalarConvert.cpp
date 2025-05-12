@@ -3,95 +3,79 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConvert.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlaggoun <vlaggoun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: doublevv <vv>                              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 08:44:34 by vlaggoun          #+#    #+#             */
-/*   Updated: 2025/04/30 14:29:11 by vlaggoun         ###   ########.fr       */
+/*   Created: 2025/04/28 08:44:34 by doublevv          #+#    #+#             */
+/*   Updated: 2025/05/12 20:12:16 by doublevv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-// ! Classe cano
+// ! Classe cano a implenter
 // ! std::strtod verifier lib
 // ! static cast
 
 void	ScalarConverter::convert(std::string arg)
 {
-	// ! Must check parsing arg before conversion
-	/*
-	if (arg = INT)
-		convert to ...
-	else if (arg = DOUBLE)
-		convert to ...
-	else if (arg = FLOAT)
-		convert to ...
-	else if (arg = CHAR)
-		convert to ...
-	*/
+	isnt_float(arg);
+	isnt_double(arg);
+	isnt_int(arg);
+	isnt_char(arg);
 }
 
-// * utiliser boolean
-void	parsing_arg(std::string arg)
+void	isnt_int(std::string arg)
 {
-	if (isnt_int(arg) == true)
-	{
-		ScalarConverter a = static_cast<int>(arg);
-	}
-	else if (isnt_float(arg) == true)
-	{
-
-	}
-	else if (isnt_double(arg) == true)
-	{
-
-	}
-	else if (isnt_char(arg) == true)
-	{
-
-	}
+	char *end;
+	long double nbr = strtold(arg.c_str(), &end);
+	if (nbr > std::numeric_limits<int>::max() || nbr < std::numeric_limits<int>::min() || end == arg.c_str())
+		std::cout << "int : impossible" << std::endl;
 	else
-	{
-		std::cout << "incorrect input" << std::endl;
-	}
+		std::cout << "int = " << static_cast<int>(nbr) << std::endl;
+}
+void	isnt_float(std::string arg)
+{
+	char *end;
+	long double nbr = strtold(arg.c_str(), &end);
+	if (std::isnan(nbr))
+		std::cout << "" << nbr << " = nanf" << std::endl;
+	else if (nbr > std::numeric_limits<float>::max() || nbr < -std::numeric_limits<float>::max() || end == arg.c_str())
+		std::cout << "float : impossible" << std::endl;
+	else
+		std::cout << "float = " << static_cast<float>(nbr) << std::endl;
 }
 
-bool	isnt_int(std::string arg)
+void	isnt_double(std::string arg)
 {
-	for (int i = 0; i < arg.length(); i++)
-	{
-		if (arg[i] >= 0 && arg[i] <= 9)
-			return (true);
-	}
-	return (false);
-}
-bool	isnt_float(std::string arg)
-{
-	for (int i = 0; i < arg.length(); i++)
-	{
-		if (arg[i] == 'f')
-			return (true);
-	}
-	return (false);
+	char *end;
+	long double nbr = strtold(arg.c_str(), &end);
+	if (std::isnan(nbr))
+		std::cout << "" << nbr << " = nanf" << std::endl;
+	else if (nbr > std::numeric_limits<double>::max() || nbr < -std::numeric_limits<double>::max() || end == arg.c_str())
+		std::cout << "double : impossible" << std::endl;
+	else
+		std::cout << "double = " << static_cast<double>(nbr) << std::endl;
 }
 
-bool	isnt_double(std::string arg)
+void	isnt_char(std::string arg)
 {
-	for (int i = 0; i < arg.length(); i++)
-	{
-		if (arg[i] == '.')
-			return (true);
-	}
-	return (false);
+	long double nbr = strtold(arg.c_str(), NULL);
+	if (isnt_digits(arg) == false)
+		std::cout << "char : impossible to print char" << std::endl;
+	else if (isnt_digits(arg) == true)
+		std::cout << "char = " << static_cast<char>(arg[0]) << std::endl;
+	else
+		std::cout << "char = " << static_cast<char>(nbr) << std::endl;
 }
 
-bool	isnt_char(std::string arg)
+bool	isnt_digits(std::string arg)
 {
-	for (int i = 0; i < arg.length(); i++)
-	{
-
-	}
-	return (false);
+	if (arg.length() == 1 && !isdigit(arg[0]))
+		return (true);
+	else if (arg.length() == 3 && arg[0] == '\'' && arg[2] == '\'')
+		return (true);
+	else
+		return (false);
 }
 
 
